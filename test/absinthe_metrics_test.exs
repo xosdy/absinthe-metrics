@@ -9,7 +9,7 @@ defmodule AbsintheMetricsTest do
       send(self(), {:install, object, field})
     end
 
-    def instrument(object, field, {status, _}, _time) do
+    def instrument(object, field, {status, _}, _time, _res) do
       send(self(), {object, field, status})
     end
   end

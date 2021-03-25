@@ -96,7 +96,7 @@ defmodule AbsintheMetrics do
         errors -> {:error, errors}
       end
 
-    adapter.instrument(object, field, result, diff)
+    adapter.instrument(object, field, result, diff, res)
 
     res
   end

@@ -12,7 +12,7 @@ if Code.ensure_loaded?(Prometheus) do
             labels: [:status]
           )
 
-    def instrument(object, field, {status, _}, _time),
+    def instrument(object, field, {status, _}, _time, _res),
       do: Counter.inc(name: to_metric(object, field), labels: [status])
 
     defp to_metric(:query, field), do: "#{field}_total"

@@ -2,7 +2,13 @@ defmodule AbsintheMetrics do
   alias Absinthe.Resolution
   @behaviour Absinthe.Middleware
 
-  @callback instrument(object :: atom, field :: atom, result :: any, time :: non_neg_integer) ::
+  @callback instrument(
+              object :: atom,
+              field :: atom,
+              result :: any,
+              time :: non_neg_integer,
+              resolution :: Resolution.t()
+            ) ::
               any
   @callback field(object :: String.t(), field :: String.t(), args :: []) :: any
 

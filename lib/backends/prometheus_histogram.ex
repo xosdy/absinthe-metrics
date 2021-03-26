@@ -25,11 +25,11 @@ if Code.ensure_loaded?(Prometheus) do
         )
     end
 
-    def instrument(:query, field, {status, _}, time) do
+    def instrument(:query, field, {status, _}, time, _res) do
       Histogram.observe([name: @query_metric_name, labels: [field, status]], time)
     end
 
-    def instrument(object, field, {status, _}, time) do
+    def instrument(object, field, {status, _}, time, _res) do
       Histogram.observe([name: @field_metric_name, labels: [object, field, status]], time)
     end
   end

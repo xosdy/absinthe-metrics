@@ -2,7 +2,7 @@ defmodule AbsintheMetrics.Backend.Echo do
   @behaviour AbsintheMetrics
   require Logger
 
-  def instrument(object, field, {status, _result}, time) do
+  def instrument(object, field, {status, _result}, time, _res) do
     metric = "#{object}_#{field}"
 
     case status do
